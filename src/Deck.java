@@ -24,8 +24,8 @@ public class Deck {
 		return (unDealt.size());
 	}
 	
-	public Card Deal(Deck p) {
-		if (p.isEmpty()) {
+	public Card Deal() {
+		if (unDealt.size() == 0) {
 			return null;
 		} else {
 			Card deal = unDealt.get(0);
