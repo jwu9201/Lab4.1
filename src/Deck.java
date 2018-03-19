@@ -5,8 +5,8 @@ public class Deck {
 	ArrayList<Card> Dealt;
 
 	public Deck(String[] rank, String[] suit, int[] value) {
-		ArrayList<Card> unDealt = new ArrayList<Card>();
-		ArrayList<Card> Dealt = new ArrayList<Card>();
+		unDealt = new ArrayList<Card>();
+		Dealt = new ArrayList<Card>();
 		for (int i = 0; i < rank.length; i++) {
 			for (int j = 0; j < suit.length; j++) {
 				unDealt.add((new Card(rank[i], suit[j], value[i])));
@@ -45,15 +45,18 @@ public class Deck {
 	}
 	
 	public void Shuffle() {
-		for (int i = 0; i < Dealt.size(); i++) {
-			unDealt.add(Dealt.get(0));
-			Dealt.remove(0);
+		int x = Dealt.size();
+		for (int i = 0; i < x; i++) {
+			unDealt.add(Dealt.get(i));
+			Dealt.remove(i);
 		}
 		for (int k = 51; k >= 0; k--) {
-			int r = (int)Math.random()*51;
+			int r = (int)(Math.random()*51);
 			Swap(r,k);
 		}
-		for (int k = 51; k >= 0; k--) {
+		//I don't understand this part of the efficient selection shuffle, this just reverses the randomness and makes the cards in order from highest.
+		
+		/*for (int k = 51; k >= 0; k--) {
 			int pos = k;
 			for (int j = k; j >= 0; j--) {
 				Card select = unDealt.get(pos);
@@ -63,6 +66,6 @@ public class Deck {
 				}
 			}
 			Swap(pos,k);
-		}
+		}*/
 	}
 }

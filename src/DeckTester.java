@@ -1,4 +1,6 @@
-
+/* Lab 4.1
+ * By: Jason Wu
+ */
 public class DeckTester {
 
 	public static void main(String[] args) {
@@ -11,7 +13,15 @@ public class DeckTester {
 		Deck test = new Deck(rank, suit, value);
 		
 		test.Shuffle();
-		test.Deal();
+		for (int i = 1; i <= 52; i++) {
+			System.out.print(i + ".) " + test.Deal().toString() + " ");
+			if (i % 4 == 0) {
+				System.out.println();
+			}
+		}
+		
+		
+		
 		
 	}
 
